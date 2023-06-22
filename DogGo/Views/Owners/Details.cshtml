@@ -43,15 +43,26 @@
         <dt class = "col-sm-2">
             <label> Neighborhood: </label>
         </dt>
-        <dd class = "col-sm-10">
-            @foreach (Neighborhood Neighborhood in Model)
-            {
-                <p>@Neighborhood.Name</p>
-            }
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Neighborhood.Name)
         </dd>
+        @if (Model.dogs.Count > 0)
+        {
+            <dt><label>Dog(s): </label></dt>
+          @foreach (Dog dog in Model.dogs)
+            {
+                <dt>@Html.DisplayFor(model => dog.Name)</dt>
+                <dd>@Html.DisplayFor(model => dog.Name)</dd>
+                <dt>@Html.DisplayFor(model => dog.Breed)</dt>
+                <dd>@Html.DisplayFor(model => dog.Breed)</dd>
+
+                
+            }
+        }
+        <dd></dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Id  }) |
     <a asp-action="Index">Back to List</a>
 </div>
