@@ -8,7 +8,8 @@ namespace DogGo.Repositories
         Dog GetDogById(int id);
         Dog GetDogByOwner(int ownerId);
         void AddDog(Dog dog);
-        //void UpdateDog(Dog dog);
-        //void DeleteDog(int id);
+        void UpdateDog(Dog dog);
+        void DeleteDog(int id);
+        List<Dog> GetDogsByOwnerId(int ownerId);
     }
 }
